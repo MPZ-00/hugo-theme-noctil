@@ -12,6 +12,41 @@ git submodule add https://github.com/MPZ-00/hugo-theme-noctil themes/noctil
 
 Then set `theme = "noctil"` in your site config. Needs Hugo 0.147 or newer.
 
+## Example config
+```toml
+theme = "noctil"
+title = "my site"
+
+[params]
+logoText = "~/me"
+hiddenSections = ["notes"]
+
+[params.intro]
+title = "hi"
+text = "Things I build, and how."
+
+[[params.footerLinks]]
+name = "github"
+url = "https://github.com/you"
+
+[[menus.main]]
+name = "projects"
+url = "/projects/"
+```
+
+A project page:
+```yaml
+---
+title: Weather station
+date: 2026-09-14
+summary: ESP32 sensor node that logs to a small dashboard.
+stack: C++
+tags: [esp32, iot]
+repo: https://github.com/you/weather-station
+pinned: true
+---
+```
+
 ## Params
 All optional.
 
