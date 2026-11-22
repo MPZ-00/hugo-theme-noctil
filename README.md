@@ -54,6 +54,7 @@ All optional.
 |---|---|---|---|
 | `logoText` | string | site title | Text in the logo block |
 | `subtitle` | string | none | Meta description of the home page |
+| `image` | string | none | Link preview image (`og:image`), relative to `static/`. A page's own `image` overrides it and can name a file in its page bundle |
 | `dateFormat` | string | `2006-01-02` | Go date layout for displayed dates |
 | `showcaseSection` | string | `projects` | Section shown as pinned blocks and log on the home page |
 | `hiddenSections` | list | `[]` | Sections kept off the home page and the RSS feed |
