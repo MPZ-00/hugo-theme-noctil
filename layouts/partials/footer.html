@@ -1,0 +1,20 @@
+{{- $hidden := site.Params.hiddenSections | default slice -}}
+<footer class="footer">
+  <span>
+    {{- with site.Copyright }}{{ . | safeHTML }} {{ end -}}
+  </span>
+  {{- with site.Params.footerLinks }}
+  <span class="footer__links">
+    {{- range . }}
+      {{- $show := true -}}
+      {{- $section := trim .url "/" -}}
+      {{- if in $hidden $section -}}
+        {{- $show = gt (len (where site.RegularPages "Section" $section)) 0 -}}
+      {{- end -}}
+      {{- if $show }}
+    <a href="{{ .url | relURL }}">{{ .name }}</a>
+      {{- end }}
+    {{- end }}
+  </span>
+  {{- end }}
+</footer>

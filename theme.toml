@@ -1,0 +1,20 @@
+name = "noctil"
+license = "MIT"
+licenselink = "https://github.com/MPZ-00/hugo-theme-noctil/blob/main/LICENSE"
+description = "A minimal, terminal-inspired Hugo theme for documenting things I build"
+homepage = "https://github.com/MPZ-00/hugo-theme-noctil"
+tags = [
+	"blog",
+	"portfolio",
+	"dark",
+	"minimal",
+	"monospace",
+	"terminal",
+	"responsive",
+]
+features = ["projects showcase", "hidden sections", "self-hosted font"]
+min_version = "0.147.0"
+
+[author]
+name = "MPZ-00"
+homepage = "https://github.com/MPZ-00"

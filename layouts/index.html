@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{- $section := site.Params.showcaseSection | default "projects" -}}
+{{- $pages := (where site.RegularPages "Section" $section).ByDate.Reverse -}}
+{{- $pinned := where $pages "Params.pinned" true -}}
+{{- $rest := where $pages "Params.pinned" "!=" true -}}
+
+{{- with site.Params.intro }}
+<div class="intro">
+  {{- with .title }}<h1>{{ . }}</h1>{{ end }}
+  {{- with .text }}<p class="dim">{{ . }}</p>{{ end }}
+</div>
+{{- end }}
+
+{{- with .Content }}<div class="post__body">{{ . }}</div>{{ end }}
+
+{{- if $pinned }}
+<div class="label">// pinned</div>
+{{- range $pinned }}{{ partial "pin.html" . }}{{ end }}
+{{- end }}
+
+{{- if $rest }}
+<div class="label">// everything else</div>
+{{ partial "log.html" $rest }}
+{{- end }}
+{{ end }}

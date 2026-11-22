@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{- with .Content }}<div class="post__body">{{ . }}</div>{{ end }}
+{{- if eq .Section (site.Params.showcaseSection | default "projects") }}
+{{ with .RegularPages.ByDate.Reverse }}{{ partial "log.html" . }}{{ end }}
+{{- else }}
+<ul class="list">
+  {{- range .Pages.ByDate.Reverse }}
+  <li>
+    {{- partial "date.html" . }}
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}
+{{ end }}

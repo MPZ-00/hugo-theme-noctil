@@ -1,0 +1,12 @@
+<table class="log">
+  <tbody>
+  {{- range . }}
+    <tr>
+      <td class="log__date">{{ partial "date.html" . }}</td>
+      <td class="log__name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+      <td class="log__summary">{{ .Params.summary }}</td>
+      <td class="log__stack">{{ .Params.stack }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>

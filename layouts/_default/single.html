@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="post">
+  <h1 class="post__title">{{ .Title }}</h1>
+  <div class="post__meta">
+    {{- partial "date.html" . -}}
+    {{- with .Params.repo }} · <a class="repo" href="{{ . }}">repo</a>{{ end }}
+  </div>
+  {{- if or .Params.stack .Params.tags }}
+  <div class="tags">
+    {{- with .Params.stack }}<span>{{ . }}</span>{{ end -}}
+    {{- range .Params.tags }}<span>{{ . }}</span>{{ end -}}
+  </div>
+  {{- end }}
+  <div class="post__body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

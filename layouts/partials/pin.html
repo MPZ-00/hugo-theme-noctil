@@ -1,0 +1,13 @@
+<a class="pin" href="{{ .RelPermalink }}">
+  <span class="pin__date">{{ partial "date.html" . }}</span>
+  <span class="pin__title">{{ .Title }}</span>
+  {{- with .Params.summary }}
+  <p class="pin__summary">{{ . }}</p>
+  {{- end }}
+  {{- if or .Params.stack .Params.tags }}
+  <div class="tags">
+    {{- with .Params.stack }}<span>{{ . }}</span>{{ end -}}
+    {{- range .Params.tags }}<span>{{ . }}</span>{{ end -}}
+  </div>
+  {{- end }}
+</a>
